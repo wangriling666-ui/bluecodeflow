@@ -2,6 +2,8 @@
 
 卡其色 + 蓝色代码流风格的静态个人作品集站点。纯 HTML / CSS / JavaScript，**零依赖、零构建**，双击即可打开。
 
+**在线预览：** https://wangriling666-ui.github.io/bluecodeflow/
+
 ## 本地预览
 
 直接双击 `index.html`，或在本目录启动一个静态服务器：
