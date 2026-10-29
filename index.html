@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlueCodeFlow · 卡其极简开发者博客与开源作品</title>
+<meta name="description" content="卡其色极简风格的开发者博客与开源项目展示站">
+<link rel="preload" as="image" href="assets/grassland.jpg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+</head>
+<body class="home locked">
+<!-- 原神式开场：草原壁纸 + 白光进入 -->
+<div id="intro">
+  <div class="intro-bg"></div>
+  <div class="intro-vignette"></div>
+  <div class="intro-light"></div>
+  <div class="intro-content">
+    <div class="intro-logo">&lt;/&gt;</div>
+    <h1 class="intro-title">BlueCodeFlow</h1>
+    <p class="intro-sub">草原序曲 · 草原与代码的交界</p>
+    <div class="load-wrap">
+      <div class="load-bar"><i id="loadFill"></i></div>
+      <div class="load-text"><span id="loadPct">0%</span><span>正在加载草原资源…</span></div>
+    </div>
+    <button id="enterBtn" class="enter-btn" disabled>白光凝聚中…</button>
+    <div class="intro-tip">戴上耳机体验更佳 · 点击进入，穿过白光</div>
+  </div>
+</div>
+<div id="white-flash"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="logo"><span class="logo-bracket">&lt;/&gt;</span> Blue<span class="logo-accent">CodeFlow</span></a>
+  <div class="nav-links">
+    <a href="index.html" class="active">首页</a>
+    <a href="projects.html">开源项目</a>
+    <a href="blog.html">技术博客</a>
+    <a href="about.html">关于我</a>
+  </div>
+  <a href="https://github.com" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+
+<!-- 卡其色首页顶部：缓缓下落 + 变换的组件流 -->
+<section class="khaki-hero" id="khakiHero">
+  <canvas id="fall-bg"></canvas>
+  <div class="hero-inner" id="heroInner">
+    <div class="hero-left">
+      <div class="eyebrow">○ KHAKI MINIMAL · v2.5 · 全栈开发者</div>
+      <h1>少即是多，<br>让代码缓缓落定.</h1>
+      <p class="hero-desc">卡其色极简博客与开源展示。这里记录 8 个开源项目与 6 篇技术文章，页面组件会随滚动缓落、错位、重组 —— 往下滑动试试。</p>
+      <div class="hero-btns">
+        <a href="projects.html" class="btn btn-primary">浏览开源项目 →</a>
+        <a href="blog.html" class="btn btn-ghost">阅读技术博客</a>
+      </div>
+      <div class="stats">
+        <div><b data-count="8">0</b><span>开源项目</span></div>
+        <div><b data-count="12600">0</b><span>累计 Star</span></div>
+        <div><b data-count="6">0</b><span>技术文章</span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stack" id="stack">
+        <div class="mini-card mc1"><span class="mc-tag">COMPONENT / 01</span><b>Flow-UI 组件库</b><i>60+ 组件 · ★3.2k</i></div>
+        <div class="mini-card mc2"><span class="mc-tag">POST / 02</span><b>RAG 入门指南</b><i>15 min · AI 系列</i></div>
+        <div class="mini-card mc3"><span class="mc-tag">STATUS / 03</span><b id="typing-wrap">➜ <span id="typing"></span><span class="caret">▊</span></b><i>open-source · online</i></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">向下滑动 ↓ 组件会下落重组</div>
+</section>
+
+<section class="section morph reveal" data-speed="0.06">
+  <div class="section-head">
+    <h2><span class="hash">#</span> 精选开源项目</h2>
+    <a href="projects.html" class="more">查看全部 8 个 →</a>
+  </div>
+  <div class="card-grid" id="featured-projects"></div>
+</section>
+
+<section class="section tech-strip morph reveal" data-speed="-0.04">
+  <div class="section-head"><h2><span class="hash">#</span> 技术流 · TECH STACK</h2></div>
+  <div class="marquee"><div class="marquee-inner">
+    <span>TypeScript</span><span>React 19</span><span>Vue 3</span><span>Node.js</span><span>Python</span><span>LangChain</span><span>Docker</span><span>TailwindCSS</span><span>Three.js</span><span>Rust</span><span>PostgreSQL</span><span>K8s</span>
+    <span>TypeScript</span><span>React 19</span><span>Vue 3</span><span>Node.js</span><span>Python</span><span>LangChain</span><span>Docker</span><span>TailwindCSS</span><span>Three.js</span><span>Rust</span><span>PostgreSQL</span><span>K8s</span>
+  </div></div>
+</section>
+
+<section class="section morph reveal" data-speed="0.08">
+  <div class="section-head">
+    <h2><span class="hash">#</span> 最新技术博客</h2>
+    <a href="blog.html" class="more">全部文章 →</a>
+  </div>
+  <div class="card-grid" id="latest-posts"></div>
+</section>
+
+<footer class="footer">
+  <div><b>&lt;/&gt; BlueCodeFlow</b> · 卡其极简 · MIT 开源</div>
+  <div class="footer-links">
+    <a href="projects.html">项目</a><a href="blog.html">博客</a><a href="about.html">关于</a>
+    <a href="https://github.com" target="_blank">GitHub</a>
+    <a href="https://juejin.cn" target="_blank">掘金</a>
+  </div>
+  <div class="c-dim">© 2026 BlueCodeFlow</div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/flow.js"></script>
+<script src="js/main.js"></script>
+<script src="js/intro.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>文章 · BlueCodeFlow</title><link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap" rel="stylesheet"></head>
+<body class="page">
+<nav class="nav"><a href="index.html" class="logo"><span class="logo-bracket">&lt;/&gt;</span> Blue<span class="logo-accent">CodeFlow</span></a>
+<div class="nav-links"><a href="index.html">首页</a><a href="projects.html">开源项目</a><a href="blog.html" class="active">技术博客</a><a href="about.html">关于我</a></div>
+<a href="blog.html" class="btn btn-ghost">← 返回列表</a></nav>
+<article class="article" style="position:relative;z-index:2">
+<div id="post-body">加载中…</div>
+<div style="margin-top:30px;display:flex;gap:10px">
+<a href="blog.html" class="btn btn-ghost btn-sm">← 全部文章</a>
+<a href="projects.html" class="btn btn-primary btn-sm">看看开源项目 →</a>
+</div>
+</article>
+<footer class="footer"><div><b>&lt;/&gt; BlueCodeFlow</b></div><div class="c-dim">© 2026 BlueCodeFlow</div></footer>
+<script src="js/data.js"></script><script src="js/flow.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get('id') || 'p1';
+const p = POSTS.find(x=>x.id===id) || POSTS[0];
+document.title = p.title + ' · BlueCodeFlow';
+document.getElementById('post-body').innerHTML = `
+<div class="post-meta-top" style="margin-bottom:14px"><span class="cat">${p.cat}</span><span>${p.date}</span><span>· ${p.read}阅读</span></div>
+<h1>${p.title}</h1>
+<p style="color:#7d93c4">${p.desc}</p>
+<div style="margin:12px 0">${p.tags.map(t=>`<span class="tag">#${t}</span>`).join(' ')}</div>
+<hr style="border:none;border-top:1px solid rgba(0,212,255,.18);margin:20px 0">
+<h2>1. 前言</h2>
+<p>这是「${p.title}」的示例正文页。所有博客共用 <code>post.html?id=xxx</code> 模板，通过 <code>js/data.js</code> 里的 POSTS 数据渲染，天然就是多页面结构。你可以把这里换成真实 Markdown 渲染（如 marked.js）或静态生成。</p>
+<pre><code>$ git clone https://github.com/your-name/${id}.git
+$ cd ${id} && npm i && npm run dev
+# ➜ Local: http://localhost:3000  ✓ blue flow running</code></pre>
+<h2>2. 核心思路</h2>
+<p>蓝色代码流的关键是三层叠加：深蓝渐变底 + CSS 网格 + Canvas 流动粒子（<code>js/flow.js</code>）。横向光线用渐变描边 + 阴影发光，纵向代码雨用低透明度重绘形成拖尾，性能稳定 60fps。</p>
+<h2>3. 开源跳转</h2>
+<p>相关开源项目已收录在 <a href="projects.html" style="color:#00d4ff">开源项目页 →</a>，每个卡片都有「演示跳转」与「源码 GitHub」双跳转，欢迎 Star。</p>
+<pre><code>if (you.likeIt) { star(); fork(); share(); }</code></pre>
+<p style="color:#7d93c4">完 · 欢迎在 GitHub 提 Issue 交流。</p>`;
+</script>
+</body></html>
